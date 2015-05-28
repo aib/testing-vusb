@@ -19,5 +19,10 @@ blink-hex: blink.o
 	avr-objcopy -j .text -j .data -O ihex blink.o main.hex
 	avr-size main.hex
 
+usb-mouse: usb-mouse.o
+	avr-objcopy -j .text -j .data -O ihex usb-mouse.o main.hex
+	avr-size main.hex
+
+
 clean:
 	$(RM) *.o
