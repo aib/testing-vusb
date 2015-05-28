@@ -18,3 +18,6 @@ program: main.hex
 blink-hex: blink.o
 	avr-objcopy -j .text -j .data -O ihex blink.o main.hex
 	avr-size main.hex
+
+clean:
+	$(RM) *.o
