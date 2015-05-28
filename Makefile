@@ -2,8 +2,8 @@ DEVICE = atmega328p
 PROGRAMMER = usbtiny
 PROGRAMMER_PORT = usb
 F_CPU = 16000000
-FUSE_L = 0b01101111
-FUSE_H = 0b11011001
+FUSE_L = 0b1101_1111
+FUSE_H = 0b0111_1001
 CC = avr-gcc
 VUSB_DIR = C:\Users\pc\aib\usb\vusb-20121206\usbdrv
 CFLAGS = -Wall -mmcu=$(DEVICE) -DF_CPU=$(F_CPU) -I. -I$(VUSB_DIR)
