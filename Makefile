@@ -16,15 +16,17 @@ avrdude-test:
 program: main.hex
 	avrdude -p $(DEVICE) -c $(PROGRAMMER) -P $(PROGRAMMER_PORT) -U hfuse:w:$(FUSE_H):m -U lfuse:w:$(FUSE_L):m -U flash:w:main.hex:i
 
+.PHONY: blink-hex
 blink-hex: blink.elf
 	avr-objcopy -j .text -j .data -O ihex blink.elf main.hex
 	avr-size main.hex
 
+.PHONY: usb-mouse-hex
 usb-mouse-hex: usb-mouse.elf
 	avr-objcopy -j .text -j .data -O ihex usb-mouse.elf main.hex
 	avr-size main.hex
 
-
+.PHONY: .clean
 clean:
 	$(RM) *.o *.elf main.hex
 
