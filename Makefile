@@ -26,4 +26,7 @@ usb-mouse: usb-mouse.o
 
 
 clean:
-	$(RM) *.o
+	$(RM) *.o *.elf main.hex
+
+%.elf: %.o
+	$(CC) -s $(CFLAGS) -o $@ $^
