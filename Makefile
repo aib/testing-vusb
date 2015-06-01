@@ -6,7 +6,7 @@ FUSE_L = 0b11011111
 FUSE_H = 0b01011001
 CC = avr-gcc
 VUSB_DIR = C:\Users\pc\aib\usb\vusb-20121206\usbdrv
-CFLAGS = -Wall -mmcu=$(DEVICE) -DF_CPU=$(F_CPU) -I. -I$(VUSB_DIR)
+CFLAGS = -Wall -O2 -mmcu=$(DEVICE) -DF_CPU=$(F_CPU)UL -I. -I$(VUSB_DIR)
 
 .PHONY: avrdude-test
 avrdude-test:
