@@ -26,6 +26,11 @@ usb-mouse-hex: usb-mouse.elf
 	avr-objcopy -j .text -j .data -O ihex usb-mouse.elf main.hex
 	avr-size main.hex
 
+usb-mouse.elf: usb-mouse.o
+	$(CC) -c $(CFLAGS) -o usbdrv.o $(VUSB_DIR)/usbdrv.c
+	$(CC) -c $(CFLAGS) -o usbdrvasm.o $(VUSB_DIR)/usbdrvasm.S
+	$(CC) -s $(CFLAGS) -o usb-mouse.elf usb-mouse.o usbdrv.o usbdrvasm.o
+
 .PHONY: .clean
 clean:
 	$(RM) *.o *.elf main.hex
